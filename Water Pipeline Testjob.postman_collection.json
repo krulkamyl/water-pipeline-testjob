@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "9056ed88-9828-4750-af29-2f48174aeb04",
+		"name": "Water Pipeline Testjob",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new package",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "package_content",
+							"value": "123222szczecin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{urlapi}}/api/package",
+					"host": [
+						"{{urlapi}}"
+					],
+					"path": [
+						"api",
+						"package"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "2311gdansk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new package",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Parse package",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlapi}}/api/package/10",
+					"host": [
+						"{{urlapi}}"
+					],
+					"path": [
+						"api",
+						"package",
+						"10"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new package",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlapi",
+			"value": "http://127.0.0.1:8082"
+		}
+	]
+}
