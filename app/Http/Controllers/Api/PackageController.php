@@ -52,33 +52,20 @@ class PackageController extends Controller
                 new PackageContent()
             ]
         ]);
-        
+
         return $this->packageRepository->createModel($validate);
     }
 
     /**
-     * Display the specified resource.
+     * Parse specific model
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Report
      */
     public function show($id)
     {
         $package = $this->packageRepository->get($id);
-
-        $package_content = substr($package->package_content,0,6);
-        $city = str_replace($package_content, '', $package->package_content );
-
-        MultiDatabaseConnector::setDatabaseConnection($city);
-        
-        $report = new Report();
-        $report->setConnection($city);
-        $reportRepository = new ReportRepository($report);
-        
-        return $reportRepository->createModel([
-            'package_id' => $id,
-            'package_content' => $package_content
-        ]);
+        return $package->parseData();
     }
 
     /**
